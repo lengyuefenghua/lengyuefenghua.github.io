@@ -1,0 +1,26 @@
+{
+	// Place your Pages 工作区 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	"newsite": {
+		"prefix": "newsite",
+		"body": [
+			"<div class='list url-list visible'>",
+				"\t<a class='tipso' href='链接地址' target='_blank'",
+				"\ttitle='链接提示'>",
+					"\t\t<p class='name'>",
+						"\t\t\t<img src='logo地址'> 链接名称",
+					"\t\t</p>",
+					"\t\t<p class='desc'>",
+						"\t\t\t简述",
+					"\t\t</p>",
+				"\t</a>",
+			"</div>"
+		],
+		"description": "快速创建站点描述"
+	}
+}
