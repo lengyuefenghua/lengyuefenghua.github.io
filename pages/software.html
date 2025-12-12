@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件收集 - lengyuefenghua</title>
+    <!-- START: Anti-FOUC Script (防止主题闪烁) -->
+    <!-- 移除主题切换逻辑，只保留默认亮色主题 -->
+    <script>
+        document.body.classList.remove('dark-theme');
+    </script>
+    <!-- END: Anti-FOUC Script -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">lengyuefenghua的个人小站</a></h1>
+            <!-- 移除主题切换按钮 -->
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="../pages/blog.html"><i class="fas fa-blog"></i> 博客记录</a></li>
+                <li><a href="../pages/software.html" class="active"><i class="fas fa-download"></i> 软件收集</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="software-header">
+                <h2>软件收集 <span id="software-count" class="item-count-badge"></span></h2>
+                <p>这里收集了我日常使用的各种实用软件，按类别进行了分类。</p>
+                <div class="category-filter" id="category-filter">
+                    </div>
+            </div>
+
+            <div class="software-grid" id="software-grid">
+                <div class="loading">加载中...</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 lengyuefenghua-l.github.io，Powered by Github Page.</p>
+        </div>
+    </footer>
+
+    <!-- NEW: 添加返回顶部按钮 -->
+    <button id="back-to-top" class="back-to-top" title="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- 移除 theme.js 引用 -->
+    <script src="../assets/js/software.js"></script>
+    </body>
+</html>

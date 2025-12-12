@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客记录 - lengyuefenghua</title>
+    <!-- START: Anti-FOUC Script (防止主题闪烁) -->
+    <!-- 移除主题切换逻辑，只保留默认亮色主题 -->
+    <script>
+        document.body.classList.remove('dark-theme');
+    </script>
+    <!-- END: Anti-FOUC Script -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 移除动态主题切换ID，保留亮色主题的 HLJS 样式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+</head>
+<body class="light-theme">
+    <header>
+        <div class="container">
+            <h1><a href="../index.html">lengyuefenghua的个人小站</a></h1>
+            <!-- 移除主题切换按钮 -->
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> 首页</a></li>
+                <li><a href="../pages/blog.html" class="active"><i class="fas fa-blog"></i> 博客记录</a></li>
+                <li><a href="../pages/software.html"><i class="fas fa-download"></i> 软件收集</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="blog-layout">
+                <!-- 左侧栏：只保留文章列表和筛选 -->
+                <aside class="blog-sidebar">
+                    <div class="sidebar-content-wrapper"> 
+                        <div class="sidebar-top-section">
+                            <div class="search-box">
+                                <input type="text" id="search-input" placeholder="搜索文章...">
+                                <button id="search-btn"><i class="fas fa-search"></i></button>
+                            </div>
+                            
+                            <div class="tag-filter-section">
+                                <h3>文章标签 <span id="tag-count" class="item-count-badge"></span></h3>
+                                <div class="tag-buttons-container" id="tag-filter-container">
+                                    <button class="tag-btn active" data-tag="All">全部</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="article-list-section">
+                            <div class="article-list">
+                                <h3>文章列表 <span id="article-count" class="item-count-badge"></span></h3>
+                                <ul id="article-list">
+                                    <li>加载中...</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 移除 toc-wrapper -->
+                    </div>
+                </aside>
+
+                <!-- 文章内容区 -->
+                <section class="blog-content">
+                    <div id="article-container">
+                        <div class="welcome-message">
+                            <h2>欢迎来到博客页面</h2>
+                            <p>请从左侧列表中选择一篇文章进行阅读。</p>
+                        </div>
+                        <div id="article-content" class="article-content">
+                            </div>
+                    </div>
+                </section>
+                
+                <!-- NEW: 固定的 TOC 容器，位于右侧 -->
+                <div class="toc-fixed-wrapper" id="toc-fixed-wrapper">
+                    <div class="toc-container" id="toc-container" style="display: none;">
+                        <h3>文章目录</h3>
+                        <ul id="toc" class="toc">
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 lengyuefenghua-l.github.io，Powered by Github Page.</p>
+        </div>
+    </footer>
+    
+    <button id="back-to-top" class="back-to-top" title="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="../assets/js/blog.js"></script>
+</body>
+</html>

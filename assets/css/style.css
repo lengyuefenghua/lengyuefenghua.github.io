@@ -1,0 +1,1320 @@
+/* 全局样式 */
+:root {
+  /* 浅色主题变量 */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --secondary-text: #666666;
+  --border-color: #e0e0e0;
+  --header-bg: #f8f9fa;
+  --nav-bg: #f1f3f4;
+  --card-bg: #ffffff;
+  --btn-bg: #007bff;
+  --btn-hover: #0056b3;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --highlight: #007bff;
+  --code-bg: #f0f0f0; /* 调整: 浅色主题下增加代码块对比度 */
+  --error-bg: #ffe0e0; /* 浅色主题下的错误背景 */
+  --error-text: #cc0000; /* 浅色主题下的错误文本 */
+  --tooltip-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* 新增 Tooltip 阴影 */
+  --tooltip-border: #cccccc; /* Tooltip 边框颜色（浅白色） */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 1600px;
+  /* 恢复居中，让 Header 和 Nav 居中对齐 */
+  margin: 0 auto; 
+  padding: 0 20px;
+}
+
+a {
+  color: var(--highlight);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 头部样式 */
+header {
+  background-color: var(--header-bg);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+header h1 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* 导航样式 */
+nav {
+  background-color: var(--nav-bg);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a i {
+  margin-right: 5px;
+}
+
+/* 移除导航链接的悬停和激活状态的下划线 */
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: var(--border-color);
+  text-decoration: none; /* FIX: 移除下划线 */
+}
+/* 主要内容样式 */
+main {
+  padding: 40px 0;
+  min-height: calc(100vh - 200px);
+  /* FIX: 确保 main 区域始终使用主题背景色，消除内容加载空档期的白色闪烁 */
+  background-color: var(--bg-color); 
+}
+
+/* 首页样式 */
+.intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: var(--secondary-text);
+  margin-bottom: 40px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.feature {
+  flex: 1;
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin: 0 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.feature i {
+  font-size: 2.5rem;
+  color: var(--highlight);
+  margin-bottom: 20px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.feature p {
+  color: var(--secondary-text);
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--btn-bg);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+  text-decoration: none;
+}
+
+/* 博客页面样式 */
+.blog-layout {
+  display: flex;
+  /* 确保整个布局容器铺满 */
+  width: 100%; 
+  
+  /* 解决博客主体居中问题：让布局靠左对齐 */
+  margin-left: 0;
+  margin-right: auto;
+  max-width: 100%;
+}
+
+.blog-sidebar {
+  /* 调整为 22.5% 宽度 (15% * 1.5) */
+  width: 22.5%; 
+  /* 移除 margin-right */
+  margin-right: 0;
+  /* 确保宽度不变，不被挤压 */
+  flex-shrink: 0; 
+  /* 添加右侧内边距作为分隔 */
+  padding-right: 20px;
+  position: sticky;
+  top: 80px;
+  /* 恢复为传统的固定侧边栏样式，只允许内部内容滚动 */
+  height: calc(100vh - 120px); 
+  display: block; /* 取消 Flex */
+  overflow-y: hidden; /* 仅在内容 wrapper 上启用滚动 */
+}
+
+/* NEW: 侧边栏内容包裹器，现在是唯一可滚动部分 */
+.sidebar-content-wrapper {
+    /* 占据父容器的高度并启用滚动 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* 允许滚动 */
+    padding-right: 5px; /* 避免滚动条遮挡内容 */
+}
+
+/* NEW: 侧边栏顶部搜索/筛选区 */
+.sidebar-top-section {
+    flex-shrink: 0; 
+}
+
+/* NEW: 文章列表区 */
+.article-list-section {
+    flex-shrink: 0;
+}
+
+/* REMOVED: toc-wrapper 样式 (因为它不再存在于左侧栏) */
+/* REMOVED: 居中相关的 flex 样式，因为左侧栏不需要居中了 */
+
+
+/* NEW: 右侧固定 TOC 样式 */
+.toc-fixed-wrapper {
+    position: fixed;
+    top: 50%; /* 垂直居中 */
+    right: 20px; /* 距离右侧 20px */
+    transform: translateY(-50%) translateX(100%); /* 默认隐藏到右侧 */
+    width: 250px; /* 固定宽度 */
+    max-height: 80vh; /* 限制高度 */
+    overflow-y: auto;
+    z-index: 10;
+    
+    /* 默认隐藏样式 */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* 默认不可点击 */
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    
+    /* 样式美化 */
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 15px;
+}
+
+.toc-fixed-wrapper.visible {
+    transform: translateY(-50%) translateX(0%); /* 滚动时显示 */
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto; /* 滚动时可点击 */
+}
+
+.search-box {
+  margin-bottom: 30px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.search-box button {
+  background-color: var(--btn-bg);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* NEW: 标签筛选区域样式 */
+.tag-filter-section {
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tag-filter-section h3 {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
+
+.tag-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag-btn {
+    background-color: var(--nav-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 5px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tag-btn:hover {
+    background-color: var(--border-color);
+}
+
+.tag-btn.active {
+    background-color: var(--highlight);
+    color: white;
+    border-color: var(--highlight);
+    font-weight: bold;
+}
+/* END: 标签筛选区域样式 */
+
+
+.article-list {
+  /* 移除 margin-bottom */
+  margin-bottom: 0px;
+}
+
+.article-list h3 {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+  /* NEW: 保持 H3 和徽章垂直居中 */
+  display: flex;
+  align-items: center;
+}
+
+.article-list ul {
+  list-style: none;
+}
+
+.article-list li {
+  margin-bottom: 10px;
+  /* 修复：使用 Flexbox 确保垂直对齐 */
+  display: flex;
+  align-items: center; 
+  overflow: hidden; 
+  
+  /* NEW: 应用整体背景和圆角 */
+  background-color: transparent; /* 默认透明 */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  padding: 0 10px; /* 内部填充 */
+}
+
+.article-list a {
+  color: var(--text-color);
+  text-decoration: none;
+  /* 修复：使用 Flexbox 属性 */
+  flex-grow: 1; 
+  /* 移除链接内部的 flex 布局，使其恢复为标准块级元素，只包含标题文本 */
+  display: block; 
+  align-items: initial; 
+  padding: 8px 0;
+  border-radius: 0; /* 移除圆角 */
+  transition: color 0.3s ease; /* 仅过渡颜色 */
+  /* 移除浮动和宽度计算 */
+  float: none;
+  width: auto; 
+  /* NEW: 确保链接内的标题文本单行显示，超出显示省略号 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* 确保链接背景透明，透出 LI 的背景 */
+  background-color: transparent !important; 
+}
+
+/* FIX: 首页文章列表链接样式，使其能够容纳标签 */
+.article-list-home li a {
+    flex-grow: 1; 
+    display: flex; /* 启用 Flexbox */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 10px 0; 
+    border-bottom: 1px dashed var(--border-color);
+    color: var(--text-color);
+    text-decoration: none;
+    white-space: normal; /* 允许标签和标题在必要时换行或被截断 */
+    overflow: visible;
+    text-overflow: clip; 
+    background-color: transparent !important;
+}
+
+/* NEW: 首页/博客列表中的标题文本（用于控制单行溢出和标签间距） */
+.article-list-home .article-title-text,
+.article-list a .article-title-text { /* 针对博客列表，尽管目前博客列表已无标签，但保留此样式以备用 */
+    flex-shrink: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 10px; /* 标题和标签的间距 */
+}
+
+/* NEW: 首页/博客列表中的标签集合 */
+.article-list-home .article-tags,
+.article-list .article-tags {
+    display: flex;
+    gap: 5px;
+    flex-shrink: 0; /* 防止标签被压缩 */
+    max-width: 50%; /* 限制标签容器宽度，确保标题有空间 */
+}
+
+/* NEW: 首页/博客列表中的单个标签 */
+.article-list-home .article-tag,
+.article-list .article-tag {
+    font-size: 0.7rem;
+    color: var(--highlight);
+    border: 1px solid var(--highlight);
+    padding: 2px 5px;
+    border-radius: 10px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+/* 修复：博客列表悬停和选中时，链接的背景同步高亮 (文字颜色保持不变) */
+.article-list li:hover {
+  background-color: var(--border-color);
+}
+
+/* 确保 active 状态下 LI 的背景高亮 (通过 JS 控制 A 的 active class) */
+.article-list a.active {
+  background-color: transparent;
+}
+
+/* 博客列表悬停和选中时，日期标签的背景同步高亮 */
+.article-list li:hover .article-date,
+.article-list a.active + .article-date {
+  background-color: var(--highlight);
+  color: white; /* 确保文字是白色 */
+}
+/* ---------------------------------------------------- */
+
+/* 修复：文章日期标签样式 */
+.blog-sidebar .article-list .article-date {
+  /* 修复：移除浮动和垂直边距，依赖 Flexbox 对齐 */
+  font-size: 0.75rem;
+  color: white;
+  background-color: var(--secondary-text); /* 使用次要文本颜色作为背景 */
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 0; /* 移除不必要的垂直位移 */
+  margin-left: 10px; /* 添加左侧间距 */
+  flex-shrink: 0;
+  line-height: 1; /* 确保高度紧凑 */
+  transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+}
+
+
+.toc-container {
+  /* 目录容器 (在 TOC Wrapper 内部) */
+  margin-bottom: 0px; 
+}
+
+.toc-container h3 {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.toc {
+  list-style: none;
+  /* 移除左侧缩进，改为在链接上控制 */
+  padding-left: 0; 
+}
+
+.toc li {
+  margin-bottom: 8px;
+}
+
+.toc a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  /* NEW: 默认左侧填充，为 active 状态的边框留出空间 */
+  padding-left: 20px; 
+  display: block; /* 确保 padding 和 border 占据整个 li 宽度 */
+  border-left: 3px solid transparent; /* 默认透明边框 */
+}
+
+.toc a:hover {
+  color: var(--highlight);
+}
+
+/* NEW: 滚动监听激活时的样式 */
+.toc a.active-toc-link {
+    color: var(--highlight);
+    font-weight: bold;
+    border-left: 3px solid var(--highlight); /* 左侧高亮边框 */
+    /* 修复：将原有填充减少 3px，确保文本在视觉上是齐平的 */
+    padding-left: 17px; 
+    text-decoration: none; /* 激活时移除下划线 */
+}
+
+/* 修复：二级和三级目录的缩进 */
+.toc .toc-h2 a {
+    /* 默认 20px 填充 + 20px 缩进 = 40px */
+    padding-left: 40px; 
+}
+.toc .toc-h3 a {
+    /* 默认 20px 填充 + 40px 缩进 = 60px */
+    padding-left: 60px;
+    font-size: 0.9em;
+}
+
+/* 确保 active 状态下的缩进保持相对位置 */
+.toc .toc-h2 a.active-toc-link {
+    padding-left: 37px; /* 40px - 3px border = 37px */
+}
+
+.toc .toc-h3 a.active-toc-link {
+    padding-left: 57px; /* 60px - 3px border = 57px */
+}
+
+
+.blog-content {
+  /* 占据剩余空间 */
+  width: 77.5%;
+  flex: 1 1 77.5%; 
+  /* 移除左侧内边距，因为间距已添加到侧边栏的 padding-right 上 */
+  padding-left: 0; 
+}
+
+.welcome-message {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.article-content {
+  background-color: var(--card-bg);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4,
+.article-content h5,
+.article-content h6 {
+  /* NEW: 添加一个 padding-top 用于滚动定位时的修正，以避免被固定导航栏遮挡 (虽然这里没有固定导航栏，但保持良好实践) */
+  padding-top: 30px; 
+  margin-top: 0px; /* 覆盖原来的 30px */
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.article-content h1 {
+  font-size: 2.2rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.article-content h2 {
+  font-size: 1.8rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+.article-content h3 {
+  font-size: 1.5rem;
+}
+
+.article-content p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.article-content li {
+  margin-bottom: 8px;
+}
+
+.article-content pre {
+  background-color: var(--code-bg);
+  padding: 15px;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+  /* NEW: 添加边框以突出代码块 */
+  border: 1px solid var(--border-color);
+}
+
+.article-content code {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: var(--code-bg);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.article-content blockquote {
+  border-left: 4px solid var(--highlight);
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: var(--secondary-text);
+}
+
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* 图片加载错误提示样式 */
+.image-load-error {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    border: 1px dashed var(--error-text);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* 软件页面样式 */
+.software-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.software-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  /* NEW: 保持 H2 和徽章垂直居中 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.software-header p {
+  font-size: 1.1rem;
+  color: var(--secondary-text);
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.category-btn {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 8px 15px;
+  margin: 0 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover,
+.category-btn.active {
+  background-color: var(--highlight);
+  color: white;
+  border-color: var(--highlight);
+}
+
+.software-grid {
+  /* 确保卡片是相对定位的，以便绝对定位的 Tooltip 可以正确放置 */
+  position: relative; 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.software-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* NEW: 启用 Flexbox 布局 */
+  display: flex; 
+  flex-direction: column;
+  /* 确保卡片是相对定位的 */
+  position: relative; 
+}
+
+.software-card:hover {
+  transform: translateY(-5px);
+  /* 悬停时稍微抬高阴影 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+/* ------------------------------------------------------------------ */
+/* START: 软件收集页卡片标题行修改 (替换原有的 .software-icon 样式) */
+/* 移除原有的 .software-icon 样式 */
+/*
+.software-icon {
+  text-align: center;
+  padding: 20px 0;
+  background-color: var(--border-color);
+}
+
+.software-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+*/
+
+.software-title-line {
+    /* 标题行使用 Flexbox 布局 */
+    display: flex;
+    align-items: center; /* 垂直居中对齐图标和标题 */
+    padding: 10px 20px; /* 增加顶部和底部的内边距 */
+    /* 修改背景色为 nav-bg，使其更亮 */
+    background-color: var(--nav-bg); 
+    /* 增加顶部圆角 */
+    border-radius: 8px 8px 0 0; 
+    margin-bottom: 0; /* 确保它紧贴 software-info body */
+}
+
+.software-icon-small {
+    /* 缩小图标尺寸，并添加右侧间距 */
+    width: 32px; 
+    height: 32px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.software-icon-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.software-info {
+  /* 移除原有的顶部 padding，改为只对内容部分 padding */
+  padding: 20px;
+  /* NEW: 允许其占据剩余空间，并启用 Flexbox 布局 */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.software-info h3 {
+    /* 覆盖原有 h3 样式，让它与图标对齐 */
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.2;
+    /* 确保标题不会被强制换行 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* END: 软件收集页卡片标题行修改 */
+/* ------------------------------------------------------------------ */
+
+
+/* NEW: 主软件页面（software.html）日期样式 */
+.software-card .software-info .software-date-full {
+    font-size: 0.85em;
+    color: var(--secondary-text); /* 使用次要文本色，低调显示 */
+    margin-bottom: 10px; /* 在日期和描述之间添加间距 */
+}
+
+.software-info p {
+  color: var(--secondary-text);
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  /* 修复：确保描述占据空间并推动底部元素 */
+  flex-grow: 1; 
+  /* 确保描述顶部与标题对齐，底部与链接区域有间隔 */
+  margin-bottom: 15px; 
+  
+  line-height: 1.5; 
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* NEW: 自定义悬浮提示框样式 (应用于首页和软件收集页) */
+.custom-tooltip {
+    position: absolute;
+    top: -20px; /* 向上偏移 */
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%); /* 居中并位于卡片上方 */
+    z-index: 100;
+    
+    /* 样式美化，参考图片 */
+    background-color: var(--card-bg);
+    border: 1px solid var(--tooltip-border); /* 浅白色边框 */
+    box-shadow: var(--tooltip-shadow); /* 阴影 */
+    border-radius: 8px;
+    padding: 15px;
+    width: 300px; /* 固定宽度 */
+    max-height: 250px;
+    overflow-y: hidden; 
+    
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-color);
+    text-align: left;
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* 允许点击穿透 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.custom-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
+    /* 默认向上弹出时的最终位置 */
+    transform: translateX(-50%) translateY(-110%); 
+}
+
+/* NEW: Tooltip 向下弹出时的样式 */
+.custom-tooltip.tooltip-down {
+    /* 调整 transform，使其位于卡片底部 (0%是顶部，100%是底部，卡片高度由 JS 决定) */
+    transform: translateX(-50%) translateY(0%); 
+}
+
+
+/* Tooltip 内部结构 */
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+.tooltip-icon img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+.tooltip-title {
+    font-weight: bold;
+    color: var(--text-color); /* 标题使用主文本色 */
+    font-size: 1.1em;
+}
+
+/* 移除浏览器默认的悬浮效果 */
+.software-card[title]:hover::after {
+    display: none;
+}
+/* ------------------------------------------------ */
+
+.software-links {
+  display: flex;
+  /* NEW: 按钮之间增加 10px 间距 */
+  gap: 10px; 
+  margin-top: auto; /* NEW: 将链接区域推到底部 */
+}
+
+.software-links a {
+  /* 确保按钮能够平均分配空间 */
+  flex: 1 1 0%;
+  text-align: center;
+  padding: 8px;
+  /* 统一按钮的非悬浮状态样式 */
+  background-color: var(--nav-bg); 
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* NEW: 官方网站按钮样式 - 简化为基础样式，只处理悬浮 */
+.software-links a.link-website {
+    /* 使用通用的 .software-links a 样式 */
+}
+
+.software-links a.link-website:hover {
+    /* 悬浮时高亮 */
+    background-color: var(--highlight); 
+    color: white;
+    border-color: var(--highlight);
+}
+
+/* NEW: 直接下载按钮样式 - 简化为基础样式，只处理悬浮 */
+.software-links a.link-download {
+    /* 使用通用的 .software-links a 样式 */
+}
+
+.software-links a.link-download:hover {
+    /* 悬浮时高亮 */
+    background-color: var(--highlight); 
+    color: white;
+    border-color: var(--highlight);
+}
+
+.software-links a:hover {
+  text-decoration: none;
+}
+
+/* NEW: 首页软件日期样式 (保留，因为它用于 home.js 渲染的卡片) */
+/* 统一首页卡片样式：删除 .software-card-home，使用 .software-card */
+/* 删除 .software-card-home .software-info .software-date 样式，因为现在使用 .software-date-full */
+
+
+.loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 0;
+  color: var(--secondary-text);
+}
+
+/* 页脚样式 */
+footer {
+  background-color: var(--header-bg);
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--secondary-text);
+}
+
+/* New: Stats Summary Styles - REMOVED FOR INDEX.HTML, KEEPING FOR REFERENCE IF NEEDED */
+/* .stats-summary-section {
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+... (other stats styles removed)
+*/
+
+
+/* NEW: 徽章样式 (用于文章和软件数量) */
+.item-count-badge {
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    background-color: var(--nav-bg);
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-left: 10px;
+    font-weight: normal;
+    white-space: nowrap;
+}
+
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+  }
+  
+  .feature {
+    margin: 10px 0;
+  }
+  
+  .blog-layout {
+    flex-direction: column;
+  }
+  
+  .blog-sidebar {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+    padding-right: 0; /* 移动端不需要分隔 */
+    /* 移动端不 sticky，解除高度限制 */
+    position: static; 
+    height: auto;
+    overflow-y: visible;
+  }
+  
+  /* 移动端侧边栏内容垂直布局调整 */
+  .sidebar-content-wrapper {
+      /* 移动端解除 flex-grow，让内容自然堆叠 */
+      flex-grow: 0;
+      /* 移动端不溢出，让整体页面滚动 */
+      overflow-y: visible; 
+  }
+  
+  /* 移动端 TOC 应该隐藏 */
+  .toc-fixed-wrapper {
+      display: none;
+  }
+  
+  .software-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  /* Responsive adjustment for stats */
+    .stats-grid {
+        flex-direction: column;
+        gap: 0;
+    }
+    .stat-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px 0;
+    }
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 576px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    flex-direction: column;
+  }
+  
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  
+  .software-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ... (保留原有的 .intro, .features 样式以备兼容，或直接删除) ... */
+
+/* 新首页布局样式 */
+.latest-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.latest-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  border-bottom: 2px solid var(--highlight);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.content-section {
+  text-align: left;
+  margin-bottom: 50px;
+  padding: 30px; /* 增加内边距 */
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.content-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--highlight);
+}
+
+.article-list-home {
+  list-style: none;
+  padding: 0;
+}
+
+/* 修复：使用 Flexbox 确保垂直对齐 */
+.article-list-home li {
+    display: flex;
+    align-items: center; /* 垂直居中文本和日期标签 */
+    
+    /* NEW: 应用整体背景和圆角 */
+    background-color: transparent; /* 默认透明 */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    padding: 0 10px; /* 内部填充 */
+}
+
+/* FIX: 首页文章列表链接样式，使其能够容纳标签 */
+.article-list-home li a {
+  /* 链接占据剩余空间 */
+  flex-grow: 1; 
+  display: flex; /* 启用 Flexbox */
+  align-items: center;
+  padding: 10px 0; /* 仅垂直填充 */
+  border-bottom: 1px dashed var(--border-color);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  border-radius: 0;
+  white-space: normal; /* 允许标签和标题在必要时换行或被截断 */
+  overflow: visible;
+  text-overflow: clip; 
+  /* 确保链接背景透明 */
+  background-color: transparent !important;
+}
+
+.article-list-home li:last-child a {
+  border-bottom: none;
+}
+
+/* 修复：首页文章列表悬停时，整个 LI 的背景同步高亮 */
+.article-list-home li:hover {
+  background-color: var(--nav-bg); 
+}
+
+/* 修复：首页文章列表悬停时，链接的背景同步高亮 (文字颜色保持不变) */
+.article-list-home li:hover a {
+  color: var(--text-color); /* 保持文字颜色不变 */
+  text-decoration: none;
+}
+
+/* 修复：首页文章列表悬停时，日期标签的背景同步高亮 */
+.article-list-home li:hover .article-date {
+  background-color: var(--highlight); /* 日期标签背景高亮 */
+  color: white;
+}
+/* ---------------------------------------------------- */
+
+.article-list-home .article-date {
+  /* 更新为标签样式，并移除浮动相关属性 */
+  color: white;
+  background-color: var(--secondary-text);
+  font-size: 0.75rem; 
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-right: 15px; 
+  flex-shrink: 0; /* 防止标签被压缩 */
+  line-height: 1; /* 紧凑行高 */
+  transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+}
+
+.software-grid-home {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* * ------------------------------------------------------------------ 
+* START: 移除所有 .software-card-home 相关的特殊样式，统一使用 .software-card
+* ------------------------------------------------------------------ 
+*/
+
+/* 移除首页卡片内部的特定布局样式 */
+.software-title-line-home {
+    /* 调整：使其和 .software-title-line 保持一致的边距 */
+    display: flex;
+    align-items: center; 
+    /* 移除 margin-bottom，让 .software-info 内部的 margin 统一控制 */
+    margin-bottom: 0; 
+    padding: 10px 20px; 
+    background-color: var(--nav-bg); 
+    border-radius: 8px 8px 0 0; 
+}
+
+.software-icon-home {
+    /* 调整：使其和 .software-icon-small 保持一致的尺寸 */
+    width: 32px; 
+    height: 32px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.software-icon-home img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.software-title-line-home h4 {
+  /* 调整：使其和 .software-info h3 保持一致 */
+  font-size: 1.3rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 调整：将下载按钮推到底部 */
+.software-card .software-links {
+    margin-top: auto; 
+}
+
+
+.btn-sm {
+  /* 移除，使用通用的 .software-links a 样式代替 */
+  display: none;
+}
+
+.more-link {
+  text-align: right;
+  margin-top: 30px; /* 增加与内容的间距 */
+}
+
+.btn-more {
+  display: inline-block;
+  color: var(--highlight);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.btn-more:hover {
+  text-decoration: underline;
+}
+
+/* ... (保留原有样式) ... */
+
+/* 文章元数据样式 (创建日期/修改日期) */
+
+/* NEW: 文章内容页的元数据容器 (标签+日期) */
+.article-content .article-metadata-header {
+    display: flex;
+    justify-content: space-between; /* 标签左对齐，日期右对齐 */
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--secondary-text);
+    margin-top: -10px; /* 向上微调，靠近文章标题 */
+    margin-bottom: 20px; /* 增加与正文的间距 */
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color); /* 添加分割线 */
+}
+
+/* NEW: 文章元数据中的标签容器 (左对齐) */
+.article-content .article-metadata-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* 标签间的间距 */
+}
+
+/* NEW: 文章元数据中的单个标签 */
+.article-content .article-tag-detail {
+    font-size: 0.85rem;
+    color: white;
+    background-color: var(--highlight);
+    border: 1px solid var(--highlight);
+    padding: 3px 8px;
+    border-radius: 12px;
+    line-height: 1;
+    white-space: nowrap;
+    /* 增加一个细微的阴影 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* NEW: 文章元数据中的日期容器 (右对齐) */
+.article-content .article-metadata-dates {
+    display: flex;
+    gap: 15px; /* 日期间的间距 */
+    flex-shrink: 0; /* 防止日期被压缩 */
+}
+
+
+.article-content .article-metadata-dates span {
+    white-space: nowrap;
+}
+
+.article-content .article-metadata-dates .updated-date {
+    /* 突出显示修改日期 */
+    color: var(--highlight); 
+    font-weight: bold;
+}
+
+/* NEW: 返回顶部按钮样式 */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--highlight);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* 默认隐藏 */
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--btn-hover);
+}

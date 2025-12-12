@@ -1,0 +1,126 @@
+[
+  {
+    "file": "DHT11温湿度传感器-51-STC8（实测通过）",
+    "date": "2020-08-10",
+    "updated_date": "2020-08-10",
+    "tags": [
+      "单片机",
+      "STC8",
+      "硬件驱动",
+      "C语言"
+    ]
+  },
+  {
+    "file": "Visual Studio用户控件测试容器配置方法",
+    "date": "2022-01-15",
+    "updated_date": "2022-01-15",
+    "tags": [
+      "Visual Studio",
+      "C#",
+      "Windows开发"
+    ]
+  },
+  {
+    "file": "win10任务栏透明及网速，cpu、内存占用显示",
+    "date": "2020-03-03",
+    "updated_date": "2020-03-03",
+    "tags": [
+      "Windows",
+      "美化",
+      "工具"
+    ]
+  },
+  {
+    "file": "win10查看wifi密码的三种方式（批处理和Autohotkey）",
+    "date": "2019-08-06",
+    "updated_date": "2019-08-06",
+    "tags": [
+      "Windows",
+      "Autohotkey",
+      "命令行"
+    ]
+  },
+  {
+    "file": "windows10 桌面右键菜单自定义",
+    "date": "2020-03-03",
+    "updated_date": "2020-03-03"
+  },
+  {
+    "file": "Windows命令提示符隐藏文件_文件夹（含AutohotKey脚本程序）",
+    "date": "2019-12-20",
+    "updated_date": "2019-12-20",
+    "tags": [
+      "Windows",
+      "Autohotkey",
+      "安全"
+    ]
+  },
+  {
+    "file": "冒泡法排序(8086汇编)",
+    "date": "2019-08-06",
+    "updated_date": "2019-08-06",
+    "tags": [
+      "汇编",
+      "算法"
+    ]
+  },
+  {
+    "file": "单片机IIC总线(实测通过)",
+    "date": "2019-04-26",
+    "updated_date": "2019-04-26",
+    "tags": [
+      "单片机",
+      "IIC",
+      "C语言"
+    ]
+  },
+  {
+    "file": "基于AutoHotkey的Steam账号切换器",
+    "date": "2023-11-05",
+    "updated_date": "2023-11-05",
+    "tags": [
+      "Autohotkey",
+      "游戏",
+      "工具"
+    ]
+  },
+  {
+    "file": "基于AutoHotkey的智能翻译器",
+    "date": "2021-11-28",
+    "updated_date": "2021-11-28",
+    "tags": [
+      "Autohotkey",
+      "工具"
+    ]
+  },
+  {
+    "file": "基于STC8单片机的频率计",
+    "date": "2019-08-12",
+    "updated_date": "2019-08-12",
+    "tags": [
+      "单片机",
+      "STC8",
+      "C语言"
+    ]
+  },
+  {
+    "file": "进退法确定最小值区间(C语言)",
+    "date": "2020-10-15",
+    "updated_date": "2020-10-15",
+    "tags": [
+      "算法",
+      "C语言",
+      "优化"
+    ]
+  },
+  {
+    "file": "黄金分割法确定近似解(C语言)",
+    "date": "2020-10-16",
+    "updated_date": "2020-10-16",
+    "tags": [
+      "算法",
+      "C语言",
+      "优化"
+    ]
+  }
+]
